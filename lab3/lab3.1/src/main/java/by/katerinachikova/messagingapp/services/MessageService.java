@@ -11,20 +11,20 @@ import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class MessageService {
-    private final static String HOST = "localhost";
-    private final static String QUEUE_NAME = "test";
+    private final static String address = "localhost";
+    private final static String queue = "test";
 
     private Logger logger = LogManager.getLogger(MessageService.class);
 
     public void sendMessage(String message) throws MessageServiceException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost(HOST);
+        factory.setHost(address);
         try (Connection connection = factory.newConnection();
              Channel channel = connection.createChannel()) {
-            channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+            channel.basicPublish("", queue, null, message.getBytes());
         } catch (TimeoutException | IOException e) {
-            logger.error("Failed to establish connection to RabbitMQ", e);
-            throw new MessageServiceException("Failed to establish connection to RabbitMQ", e);
+            logger.error("Can't connect to RabbitMQ", e);
+            throw new MessageServiceException("Can't connect to RabbitMQ", e);
         }
     }
 }

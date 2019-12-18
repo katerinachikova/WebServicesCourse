@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class ResponseUtils {
     public static Map<String, String> errorMessage(Response response, String message) {
-        return message(response, message, by.katerinachikova.messagingapp.utils.StatusCode.BAD_REQUEST);
+        return message(response, message, by.katerinachikova.messagingapp.utils.StatusCode.status_error);
     }
 
     public static Map<String, String> message(Response response, String message, int status) {
@@ -19,6 +19,6 @@ public class ResponseUtils {
     }
 
     public static Map<String, String> successMessage(Response response, String message) {
-        return message(response, message, by.katerinachikova.messagingapp.utils.StatusCode.OK);
+        return message(response, message, by.katerinachikova.messagingapp.utils.StatusCode.status_ok);
     }
 }

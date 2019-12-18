@@ -13,7 +13,7 @@ import spark.Route;
 import java.util.Map;
 
 public class MessageController {
-    private final static String MESSAGE_KEY = "message";
+    private final static String received_msg = "message";
 
     private MessageService messageService = new MessageService();
 
@@ -21,10 +21,10 @@ public class MessageController {
 
     public final Route sendMessage = (Request request, Response response) -> {
         Map<String, String> bodyParams = JsonBodyConverter.convertJsonBodyToMap(request);
-        if (!bodyParams.containsKey(MESSAGE_KEY)) {
+        if (!bodyParams.containsKey(received_msg)) {
             return ResponseUtils.errorMessage(response, "Invalid request body");
         }
-        String message = bodyParams.get(MESSAGE_KEY);
+        String message = bodyParams.get(received_msg);
         logger.info("Sending message: " + message);
         try {
             messageService.sendMessage(message);
