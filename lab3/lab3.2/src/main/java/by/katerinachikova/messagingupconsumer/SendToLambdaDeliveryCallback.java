@@ -21,13 +21,13 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class SendToLambdaDeliveryCallback implements DeliverCallback {
-    private final static String LAMBDA_URL = "https://xceergiax4.execute-api.us-east-1.amazonaws.com/dev/wrap-links";
-    private final static String FROM = "kto-to@gmail.com";
+    private final static String LAMBDA_URL = "https://a8ewmlezqf.execute-api.us-east-1.amazonaws.com/dev/edit";
+    private final static String FROM = "katerina.chikova@gmail.com";
     private final static String TO = "katerina.chikova@gmail.com";
     private final static String SUBJECT = "RabbitMQ message";
-    private final static String SMTP_HOST = "email-smtp.eu-central-1.amazonaws.com";
-    private final static String SMTP_USERNAME = "AKIAZNYRQLQJE2QGEFUT";
-    private final static String SMTP_PASSWORD = "31V+TnaCG8HksrIdZCLpPx3NybPHPfwcw0x36+cK";
+    private final static String SMTP_HOST = "email-smtp.us-west-2.amazonaws.com";
+    private final static String SMTP_USERNAME = "AKIAZNYRQLQJIJDYIFXP";
+    private final static String SMTP_PASSWORD = "BJeetomynE67gidg/7tzhJf3O8h8VXeAdpimNtcZFBK2";
 
     private Logger logger = LogManager.getLogger(SendToLambdaDeliveryCallback.class);
 
